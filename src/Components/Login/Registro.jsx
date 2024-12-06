@@ -18,8 +18,7 @@ const Registro = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ nomeCompleto, numeroTelefone, email, senha })
-    });
-    
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -32,6 +31,14 @@ const Registro = () => {
     } catch (error) {
       setMessage("Erro na conexão com o servidor");
       console.error("Erro:", error);
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    const phone = e.target.value;
+    // Apenas permite números
+    if (/^\d*$/.test(phone)) {
+      setNumeroTelefone(phone);
     }
   };
 
@@ -54,7 +61,7 @@ const Registro = () => {
             placeholder="Número de Telefone"
             required
             value={numeroTelefone}
-            onChange={(e) => setNumeroTelefone(e.target.value)}
+            onChange={handlePhoneChange}
           />
         </div>
         <div className="input-field">
