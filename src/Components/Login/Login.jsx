@@ -26,7 +26,7 @@ const Login = () => {
         const data = await response.json();
         setMessage("Login bem-sucedido!"); 
         console.log("ID do usuário:", data.userId); 
-        window.location.href = "http://localhost:5173/Lista"; // Redireciona para a URL completa
+        window.location.href = "http://localhost:5173/Lista"; 
       } else {
         setMessage("Erro ao fazer login"); 
         console.error("Erro na resposta do servidor");
